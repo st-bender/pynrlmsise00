@@ -10,11 +10,5 @@
 """
 __version__ = "0.0.1"
 
-try:
-	__PYNRLMSISE_SETUP__
-except NameError:
-	__PYNRLMSISE_SETUP__ = False
-
-if not __PYNRLMSISE_SETUP__:
-	from . import _nrlmsise00
-	from .core import *
+from . import _nrlmsise00
+from .core import *
