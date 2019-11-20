@@ -1,15 +1,23 @@
 [![builds](https://travis-ci.org/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.org/st-bender/pynrlmsise00)
+[![codecov](https://codecov.io/gh/st-bender/pynrlmsise00/badge.svg)](https://codecov.io/gh/st-bender/pynrlmsise00)
 [![coveralls](https://coveralls.io/repos/github/st-bender/pynrlmsise00/badge.svg)](https://coveralls.io/github/st-bender/pynrlmsise00)
 [![scrutinizer](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/?branch=master)
 
-# NRLMSISE-00 Python interface
+# Python interface for the NRLMSISE-00 empirical atmosphere model
 
 This python version of the NRLMSISE00 upper atmosphere model is
-based on the C-version of the code, available at www.brodo.de/space/nrlmsise
+based on the C-version of the code, available at www.brodo.de/space/nrlmsise.
 The C code is imported as a `git` submodule from
-[http://git//git.linta.de/~brodo/nrlmsise-00.git](https://git.linta.de/?p=~brodo/nrlmsise-00.git).
+[git://git.linta.de/~brodo/nrlmsise-00.git](git://git.linta.de/~brodo/nrlmsise-00.git)
+(browsable version at:
+[https://git.linta.de/?p=~brodo/nrlmsise-00.git](https://git.linta.de/?p=~brodo/nrlmsise-00.git)).
 
 ## Overview
+
+Quote from https://ccmc.gsfc.nasa.gov/models/modelinfo.php?model=MSISE:
+
+“The MSISE model describes the neutral temperature and densities in Earth's atmosphere from ground to thermospheric heights.
+The NRLMSIS-00 empirical atmosphere model was developed by Mike Picone, Alan Hedin, and Doug Drob.”
 
 ## Install
 
