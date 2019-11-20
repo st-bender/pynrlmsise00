@@ -67,7 +67,7 @@ if __name__ == "__main__":
 		description="Python interface for the NRLMSISE-00 neutral atmosphere model",
 		long_description=long_description,
 		long_description_content_type="text/markdown",
-		url="http://github.com/st-bender/pynrlmsise00",
+		url="https://github.com/st-bender/pynrlmsise00",
 		author="Stefan Bender",
 		author_email="stefan.bender@ntnu.no",
 		license="GPLv2",
