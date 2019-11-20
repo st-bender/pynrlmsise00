@@ -49,8 +49,10 @@ def test_c_gtd7():
 	aph = [100.] * 7
 	# standard flags
 	flags = [0] + [1] * 23
-	# update input dicts with values to test
-	inputs = [STD_INPUT_C.copy() for _ in range(17)]
+	# copy the list contents, otherwise they would all point to the
+	# same list which would get overwritten every time a value changes
+	inputs = [STD_INPUT_C[:] for _ in range(17)]
+	# update input lists with values to test
 	inputs[1][1] = 81  # doy
 	inputs[2][2] = 75000  # sec
 	inputs[2][3] = 1000  # alt
@@ -90,9 +92,11 @@ def test_py_msise():
 	aph = [100.] * 7
 	# standard flags
 	flags = [0] + [1] * 23
-	# update input dicts with values to test
 	kws = [STD_KW_PY.copy() for _ in range(17)]
-	inputs = [STD_INPUT_PY.copy() for _ in range(17)]
+	# copy the list contents, otherwise they would all point to the
+	# same list which would get overwritten every time a value changes
+	inputs = [STD_INPUT_PY[:] for _ in range(17)]
+	# update input lists with values to test
 	inputs[1][0] = dt.datetime(2009, 3, 22, 8, 3, 20)
 	inputs[2][0] = dt.datetime(2009, 6, 21, 20, 50, 0)
 	inputs[2][1] = 1000  # alt
