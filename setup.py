@@ -1,10 +1,14 @@
 from codecs import open
 from os import path
-from sys import version_info
+import re
 # Always prefer setuptools over distutils
 from setuptools import find_packages, setup
 from subprocess import check_call
 from distutils.core import Extension
+
+name = "nrlmsise00"
+meta_path = path.join("src", name, "__init__.py")
+here = path.abspath(path.dirname(__file__))
 
 extnrlmsise00 = Extension(
 		name="nrlmsise00._nrlmsise00",
@@ -22,28 +26,44 @@ extras_require = {
 extras_require["all"] = sorted(
 		{v for req in extras_require.values() for v in req})
 
+
+# Approach taken from
+# https://packaging.python.org/guides/single-sourcing-package-version/
+# and the `attrs` package https://www.attrs.org/
+# https://github.com/python-attrs/attrs
+def read(*parts):
+	"""
+	Builds an absolute path from *parts* and and return the contents of the
+	resulting file.  Assumes UTF-8 encoding.
+	"""
+	with open(path.join(here, *parts), "rb", "utf-8") as f:
+		return f.read()
+
+
+def find_meta(meta, *path):
+	"""
+	Extract __*meta*__ from *path* (can have multiple components)
+	"""
+	meta_file = read(*path)
+	meta_match = re.search(
+		r"^__{meta}__ = ['\"]([^'\"]*)['\"]".format(meta=meta), meta_file, re.M
+	)
+	if not meta_match:
+		raise RuntimeError("__{meta}__ string not found.".format(meta=meta))
+	return meta_match.group(1)
+
+
 # Get the long description from the README file
-here = path.abspath(path.dirname(__file__))
-with open(path.join(here, "README.md"), encoding="utf-8") as f:
-	long_description = f.read()
+long_description = read("README.md")
+version = find_meta("version", meta_path)
 
 if __name__ == "__main__":
-	# Approach copied from dfm (celerite, emcee, and george)
-	# Hackishly inject a constant into builtins to enable importing of the
-	# package before the library is built.
-	if version_info[0] < 3:
-		import __builtin__ as builtins
-	else:
-		import builtins
-	builtins.__PYNRLMSISE_SETUP__ = True
-	from src.nrlmsise00 import __version__
-
 	# update git submodules
 	if path.exists(".git"):
 		check_call(["git", "submodule", "update", "--init", "--recursive"])
 
-	setup(name="nrlmsise00",
-		version=__version__,
+	setup(name=name,
+		version=version,
 		description="Python interface for the NRLMSISE-00 neutral atmosphere model",
 		long_description=long_description,
 		long_description_content_type="text/markdown",
