@@ -1,4 +1,4 @@
-[![builds](https://travis-ci.org/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.org/st-bender/pynrlmsise00)
+[![builds](https://travis-ci.com/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.com/st-bender/pynrlmsise00)
 [![codecov](https://codecov.io/gh/st-bender/pynrlmsise00/badge.svg)](https://codecov.io/gh/st-bender/pynrlmsise00)
 [![coveralls](https://coveralls.io/repos/github/st-bender/pynrlmsise00/badge.svg)](https://coveralls.io/github/st-bender/pynrlmsise00)
 [![scrutinizer](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/?branch=master)
