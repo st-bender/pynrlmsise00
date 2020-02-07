@@ -3,7 +3,7 @@
 [![coveralls](https://coveralls.io/repos/github/st-bender/pynrlmsise00/badge.svg)](https://coveralls.io/github/st-bender/pynrlmsise00)
 [![scrutinizer](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/?branch=master)
 
-# Python interface for the NRLMSISE-00 empirical atmosphere model
+# Python interface for the NRLMSISE-00 empirical neutral atmosphere model
 
 This python version of the NRLMSISE00 upper atmosphere model is
 based on the C-version of the code, available at www.brodo.de/space/nrlmsise.
@@ -11,6 +11,9 @@ The C code is imported as a `git` submodule from
 [git://git.linta.de/~brodo/nrlmsise-00.git](git://git.linta.de/~brodo/nrlmsise-00.git)
 (browsable version at:
 [https://git.linta.de/?p=~brodo/nrlmsise-00.git](https://git.linta.de/?p=~brodo/nrlmsise-00.git)).
+
+:warning: This python interface is in the **alpha** stage, that is, it may or
+may not work, and the interface will most likely change in future versions.
 
 ## Overview
 
