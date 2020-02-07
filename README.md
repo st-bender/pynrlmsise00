@@ -31,7 +31,15 @@ For example on Debian/Ubuntu Linux, the package `libc6-dev` is needed.
 
 ### pynrlmsise00
 
-There is no `pip` package yet, but pynrlmsise00 can be installed
+An **experimental** `pip` package called `nrlmsise00` is available from the
+main package repository, and can be installed it with:
+```sh
+$ pip install nrlmsise00
+```
+In some cases this will install from the source package and the note
+above about the additional requirements applies.
+
+As binary package support is limited, pynrlmsise00 can be installed
 with [`pip`](https://pip.pypa.io) directly from github
 (see <https://pip.pypa.io/en/stable/reference/pip_install/#vcs-support>
 and <https://pip.pypa.io/en/stable/reference/pip_install/#git>):
