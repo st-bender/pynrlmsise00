@@ -26,7 +26,39 @@ after_success:
   - codecov
   - coveralls
   - ocular --data-file ".coverage"
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then
+      pip install cibuildwheel==0.12.0
+      CIBW_BUILD="cp34-*" cibuildwheel --output-dir dist
+      pip install -U cibuildwheel==1.1.0
+      cibuildwheel --output-dir dist
+      ls -alF dist/
+    fi
 notifications:
   email:
     on_success: never
     on_failure: always
+deploy:
+  - provider: pypi
+    server: https://test.pypi.org/legacy/
+    user: __token__
+    password:
+      secure: Qn+CHsG2geZCeNCZKSrxd6+bENmQ0Tyc1oFMFP1UtRvjhnbzZRwXCgjsZoHHQwuy5yReN+z6PHJepl+TzgcoSQutBzE1NRSFLSW3TWNor3zevg5PS1JXIWat5fhoNc8s8OXVJKrha4wStN1B185z8+tXT5beyMYnnvacntTCU7Z0cwHd9PeEy2z0w5e9VPYu66AvCDioV0cflCvC6rh4WU83tFVRxuyz+9Mqk5ZgwA8/UyXFHj0MZilP8AdRHzVkZHHKtfc9Cd4UDjvdtJXsN+eVwDnVVf5/uyfNbkqcCFNhaLgDuTxyczN64GqRH3RailHy4Ec6cXIO40mFxzpR3duerSkb4oxbes0Eol9QcsJfVOIB0NbQDbIQdiAS2tWdFSID7Dy5P26m+WDp2yPr/YEePECcTEFOMVVlvd97OViULdVJ1pshOHSAh9Lmsvp9kRvPUiU9TjH7IPkGvEAwM1YzczbRuWRRm0l9MoWAeiSt7m2leG35AXQ14aVMwRQMxxDpCtd9ar/HbMHXhytbd9d8mwO5hxF5V/O8A19mYRRuel+haihj8xh3VEfeKlyV5YGaMFS8Eg4K+dLXBTIUtdHoIA6r1abiG7bVns3Vw5M5BmvR4WnKCz/EBLSRCGQixulgfbP2+svNQIg2h1vj4Dvq/+gFt9TjkHNXvsa5xBo=
+    skip_existing: true
+    skip_cleanup: true
+    on:
+      repo: st-bender/pynrlmsise00
+      branch: master
+      tags: false
+      condition: $TRAVIS_PYTHON_VERSION == 3.7
+  - provider: pypi
+    user: __token__
+    password:
+    secure: m8BVzgg7zE1UKvSvjTRRKv2UfhEHt2tV6S6Ot3Oa9xVoJ+uk0EaIp1OfBunxT77fSvwcFnZR3i0VodPyE1zbzyffOagSPq/Z8MmjN9HnGMSIKrlhKuJ/K00xVRn1qAl1NKc6vg9WF+EW4rYxHPeFWEFcYZM8bnl6uoqgCNug9ML9QO0mX6BIWiFPhS+cXZC3HP3yD8RernWcl/6N8YXLgH9ShDkSCkXlcRKzfNyNRiPv17OdmAlf6SAzy6uEgfK/f63SSXkkMbH3WMcJjqSbMp1JD5q+rhd0ss9bpJCcrG3X5YyC3Q2KzJ3DBVhxYEd7/Ne2Qa+R96yqXYle7NBi09+EOd95a7RqsD3Uaj7yP96r51oIw13ZWAyifyjBDXJhvyFI0EVczfmXtSvuijOq+6oWIaeX3kXxSENspLF/YqcSHF5SqoyiRCx5D4e9/YYeibdT2wl1mMiu2K9Fy+VN+grZJAC1PQHE5w2iSAmXRRclVWkMVM7T8oXkBu1J6ZLFidns9jxvVqRQhAx6pgLWDFQ0zw0Wmai3wpZnmHlbGSAD9SXNjJy9XM2Px5ek2UPi72CnR7JtpHBE9TzHKnk4abRyYVbHEx29G+W1AlOYAezracjd7g/bQKt/BZblKgcSJVa0vvUJT8ZV/HR+QK/o8saR2yAImb3IwOUMyKf06QY=
+    skip_existing: true
+    skip_cleanup: true
+    on:
+      repo: st-bender/pynrlmsise00
+      branch: master
+      tags: true
+      condition: $TRAVIS_PYTHON_VERSION == 3.7
