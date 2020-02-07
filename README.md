@@ -26,6 +26,9 @@ The NRLMSIS-00 empirical atmosphere model was developed by Mike Picone, Alan Hed
 - `numpy` - required
 - `pytest` - optional, for testing
 
+To compile the C source code, additional system header files may be required.
+For example on Debian/Ubuntu Linux, the package `libc6-dev` is needed.
+
 ### pynrlmsise00
 
 There is no `pip` package yet, but pynrlmsise00 can be installed
