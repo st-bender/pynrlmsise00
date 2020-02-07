@@ -35,7 +35,7 @@ For example on Debian/Ubuntu Linux, the package `libc6-dev` is needed.
 ### pynrlmsise00
 
 An **experimental** `pip` package called `nrlmsise00` is available from the
-main package repository, and can be installed it with:
+main package repository, and can be installed with:
 ```sh
 $ pip install nrlmsise00
 ```
