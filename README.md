@@ -125,9 +125,12 @@ because of their similarity, `gtd7()` and `gtd7d()` are selected via the
 
 ```
 
+### NumPy interface
+
 A `numpy` compatible *flat* version is available as `msise_flat()`,
 it returns a 11-element `numpy.ndarray` with the densities in the
 first 9 entries and the temperatures in the last two entries.
+That is `ret = numpy.ndarray([d[0], ..., d[8], t[0], t[1]])`.
 ```python
 >>> from datetime import datetime
 >>> from nrlmsise00 import msise_flat
