@@ -98,9 +98,25 @@ The C submodule directly interfaces the model functions `gtd7()` and `gtd7d()`
 by importing `nrlmsise00._nrlmsise00`. The return values are always
 tuples of two lists containing the densities (`d[0]`--`d[8]`),
 and temperatures (`t[0]`, `t[1]`).
+
+The output has the same order as the C reference code, in particular:
+* `d[0]` - He number density [cm$^{-3}$]
+* `d[1]` - O number density [cm$^{-3}$]
+* `d[2]` - N2 number density [cm$^{-3}$]
+* `d[3]` - O2 number density [cm$^{-3}$]
+* `d[4]` - Ar number density [cm$^{-3}$]
+* `d[5]` - total mass density [g cm$^{-3}$]) (includes d[8] in `gtd7d()`)
+* `d[6]` - H number density [cm$^{-3}$]
+* `d[7]` - N number density [cm$^{-3}$]
+* `d[8]` - Anomalous oxygen number density [cm$^{-3}$]
+* `t[0]` - exospheric temperature [K]
+* `t[1]` - temperature at `alt` [K]
+
 The `flags` and `ap_a` value array are set via keywords, but both default
 to the standard setting, such that changing them should not be necessary
 for most use cases.
+For example setting `flag[0]` to `1` changes the output to metres
+and kilograms instead of centimetres and grams (`0` is the default).
 ```python
 >>> from nrlmsise00._nrlmsise00 import gtd7, gtd7d
 >>> # using the standard flags
