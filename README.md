@@ -1,6 +1,8 @@
 # Python interface for the NRLMSISE-00 empirical neutral atmosphere model
 
 [![builds](https://travis-ci.com/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.com/st-bender/pynrlmsise00)
+[![package](https://img.shields.io/pypi/v/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
+[![PyPI version](https://badge.fury.io/py/nrlmsise00.svg)](https://badge.fury.io/py/nrlmsise00)
 [![codecov](https://codecov.io/gh/st-bender/pynrlmsise00/badge.svg)](https://codecov.io/gh/st-bender/pynrlmsise00)
 [![coveralls](https://coveralls.io/repos/github/st-bender/pynrlmsise00/badge.svg)](https://coveralls.io/github/st-bender/pynrlmsise00)
 [![scrutinizer](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/?branch=master)
