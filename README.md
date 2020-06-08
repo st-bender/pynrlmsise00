@@ -100,15 +100,15 @@ tuples of two lists containing the densities (`d[0]`--`d[8]`),
 and temperatures (`t[0]`, `t[1]`).
 
 The output has the same order as the C reference code, in particular:
-* `d[0]` - He number density [cm$^{-3}$]
-* `d[1]` - O number density [cm$^{-3}$]
-* `d[2]` - N2 number density [cm$^{-3}$]
-* `d[3]` - O2 number density [cm$^{-3}$]
-* `d[4]` - Ar number density [cm$^{-3}$]
-* `d[5]` - total mass density [g cm$^{-3}$]) (includes d[8] in `gtd7d()`)
-* `d[6]` - H number density [cm$^{-3}$]
-* `d[7]` - N number density [cm$^{-3}$]
-* `d[8]` - Anomalous oxygen number density [cm$^{-3}$]
+* `d[0]` - He number density [cm⁻³]
+* `d[1]` - O number density [cm⁻³]
+* `d[2]` - N2 number density [cm⁻³]
+* `d[3]` - O2 number density [cm⁻³]
+* `d[4]` - Ar number density [cm⁻³]
+* `d[5]` - total mass density [g cm⁻³]) (includes d[8] in `gtd7d()`)
+* `d[6]` - H number density [cm⁻³]
+* `d[7]` - N number density [cm⁻³]
+* `d[8]` - Anomalous oxygen number density [cm⁻³]
 * `t[0]` - exospheric temperature [K]
 * `t[1]` - temperature at `alt` [K]
 
