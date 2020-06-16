@@ -82,16 +82,16 @@ static char gtd7_docstring[] =
 	Returns\n\
 	-------\n\
 	densities: list\n\
-		the NRLMSISE-00 densities:\n\
-		d[0] - HE NUMBER DENSITY(CM-3)\n\
-		d[1] - O NUMBER DENSITY(CM-3)\n\
-		d[2] - N2 NUMBER DENSITY(CM-3)\n\
-		d[3] - O2 NUMBER DENSITY(CM-3)\n\
-		d[4] - AR NUMBER DENSITY(CM-3)\n\
-		d[5] - TOTAL MASS DENSITY(GM/CM3) [includes d[8] in td7d]\n\
-		d[6] - H NUMBER DENSITY(CM-3)\n\
-		d[7] - N NUMBER DENSITY(CM-3)\n\
-		d[8] - Anomalous oxygen NUMBER DENSITY(CM-3)\n\n\
+		the NRLMSISE-00 densities:\n\n\
+		- d[0] - HE NUMBER DENSITY(CM-3)\n\
+		- d[1] - O NUMBER DENSITY(CM-3)\n\
+		- d[2] - N2 NUMBER DENSITY(CM-3)\n\
+		- d[3] - O2 NUMBER DENSITY(CM-3)\n\
+		- d[4] - AR NUMBER DENSITY(CM-3)\n\
+		- d[5] - TOTAL MASS DENSITY(GM/CM3) [includes d[8] in td7d]\n\
+		- d[6] - H NUMBER DENSITY(CM-3)\n\
+		- d[7] - N NUMBER DENSITY(CM-3)\n\
+		- d[8] - Anomalous oxygen NUMBER DENSITY(CM-3)\n\n\
 		O, H, and N are set to zero below 72.5 km\n\n\
 		d[5], TOTAL MASS DENSITY, is NOT the same for subroutines GTD7 \n\
 		and GTD7D\n\
@@ -100,9 +100,9 @@ static char gtd7_docstring[] =
 		This includes He, O, N2, O2, Ar, H, and N but does NOT include\n\
 		anomalous oxygen (species index 8).\n\
 	temperatures: list\n\
-		the NRLMSISE-00 temperatures:\n\
-		t[0] - EXOSPHERIC TEMPERATURE\n\
-		t[1] - TEMPERATURE AT ALT\n\n\
+		the NRLMSISE-00 temperatures:\n\n\
+		- t[0] - EXOSPHERIC TEMPERATURE\n\
+		- t[1] - TEMPERATURE AT ALT\n\n\
 		t[0], Exospheric temperature, is set to global average for\n\
 		altitudes below 120 km. The 120 km gradient is left at global\n\
 		average value for altitudes below 72 km.\n\n\
