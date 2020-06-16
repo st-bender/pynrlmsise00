@@ -115,7 +115,8 @@ static char gtd7d_docstring[] =
 	additional details.\n\n\
 	Parameters\n\
 	----------\n\
-	Same as for :func:`gtd7()`.\n\n\
+	*args:\n\t\tSame as for :func:`gtd7()`.\n\
+	**kwargs:\n\t\tSame as for :func:`gtd7()`.\n\n\
 	Returns\n\
 	-------\n\
 	densities, temperatures: lists\n\
