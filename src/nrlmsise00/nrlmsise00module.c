@@ -34,16 +34,16 @@ static char gtd7_docstring[] =
 	ap: float\n\
 		Daily geomagnetic ap index.\n\
 	ap_a: list of 7 floats, optional\n\
-		Array containing the following magnetic values:\n\
-		  0 : daily AP\n\
-		  1 : 3 hr AP index for current time\n\
-		  2 : 3 hr AP index for 3 hrs before current time\n\
-		  3 : 3 hr AP index for 6 hrs before current time\n\
-		  4 : 3 hr AP index for 9 hrs before current time\n\
-		  5 : Average of eight 3 hr AP indicies from 12 to 33 hrs \n\
-		          prior to current time\n\
-		  6 : Average of eight 3 hr AP indicies from 36 to 57 hrs \n\
-		          prior to current time \n\
+		Array containing the following magnetic values:\n\n\
+		0. daily AP\n\
+		1. 3 hr AP index for current time\n\
+		2. 3 hr AP index for 3 hrs before current time\n\
+		3. 3 hr AP index for 6 hrs before current time\n\
+		4. 3 hr AP index for 9 hrs before current time\n\
+		5. Average of eight 3 hr AP indicies from 12 to 33 hrs \n\
+			prior to current time\n\
+		6. Average of eight 3 hr AP indicies from 36 to 57 hrs \n\
+			prior to current time \n\
 	flags: list of 24 int, optional\n\
 		Sets the model's internal `switches` array.\n\
 		Quote from the NRLMSISE-00 source code:\n\
@@ -52,35 +52,33 @@ static char gtd7_docstring[] =
 		Standard values are 0 for switch 0 and 1 for switches 1 to 23. The \n\
 		array 'switches' needs to be set accordingly by the calling program.\n\
 		The arrays sw and swc are set internally.\n\n\
-		switches[i]:\n\
-		 i - setting\n\
-		-----------------\n\
-		 0 - output in meters and kilograms instead of centimetres and grams\n\
-		 1 - F10.7 effect on mean\n\
-		 2 - time independent\n\
-		 3 - symmetrical annual\n\
-		 4 - symmetrical semiannual\n\
-		 5 - asymmetrical annual\n\
-		 6 - asymmetrical semiannual\n\
-		 7 - diurnal\n\
-		 8 - semidiurnal\n\
-		 9 - daily ap [when this is set to -1 (!) the pointer\n\
-		               ap_a in struct nrlmsise_input must\n\
-		               point to a struct ap_array]\n\
-		10 - all UT/long effects\n\
-		11 - longitudinal\n\
-		12 - UT and mixed UT/long\n\
-		13 - mixed AP/UT/LONG\n\
-		14 - terdiurnal\n\
-		15 - departures from diffusive equilibrium\n\
-		16 - all TINF var\n\
-		17 - all TLB var\n\
-		18 - all TN1 var\n\
-		19 - all S var\n\
-		20 - all TN2 var\n\
-		21 - all NLB var\n\
-		22 - all TN3 var\n\
-		23 - turbo scale height var\n\n\
+		switches[i]:\n\n\
+		0. output in meters and kilograms instead of centimetres and grams\n\
+		1. F10.7 effect on mean\n\
+		2. time independent\n\
+		3. symmetrical annual\n\
+		4. symmetrical semiannual\n\
+		5. asymmetrical annual\n\
+		6. asymmetrical semiannual\n\
+		7. diurnal\n\
+		8. semidiurnal\n\
+		9. daily ap [when this is set to -1 (!) the pointer\n\
+			ap_a in struct nrlmsise_input must\n\
+			point to a struct ap_array]\n\
+		10. all UT/long effects\n\
+		11. longitudinal\n\
+		12. UT and mixed UT/long\n\
+		13. mixed AP/UT/LONG\n\
+		14. terdiurnal\n\
+		15. departures from diffusive equilibrium\n\
+		16. all TINF var\n\
+		17. all TLB var\n\
+		18. all TN1 var\n\
+		19. all S var\n\
+		20. all TN2 var\n\
+		21. all NLB var\n\
+		22. all TN3 var\n\
+		23. turbo scale height var\n\n\
 	Returns\n\
 	-------\n\
 	densities: list\n\
@@ -89,7 +87,7 @@ static char gtd7_docstring[] =
 		d[1] - O NUMBER DENSITY(CM-3)\n\
 		d[2] - N2 NUMBER DENSITY(CM-3)\n\
 		d[3] - O2 NUMBER DENSITY(CM-3)\n\
-		d[4] - AR NUMBER DENSITY(CM-3)                       \n\
+		d[4] - AR NUMBER DENSITY(CM-3)\n\
 		d[5] - TOTAL MASS DENSITY(GM/CM3) [includes d[8] in td7d]\n\
 		d[6] - H NUMBER DENSITY(CM-3)\n\
 		d[7] - N NUMBER DENSITY(CM-3)\n\
