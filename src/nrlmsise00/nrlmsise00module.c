@@ -62,7 +62,8 @@ static char gtd7_docstring[] =
 		6. asymmetrical semiannual\n\
 		7. diurnal\n\
 		8. semidiurnal\n\
-		9. daily ap [when this is set to -1 (!) the pointer\n\
+		9. daily ap\n\
+			[when this is set to -1 (!) the pointer\n\
 			ap_a in struct nrlmsise_input must\n\
 			point to a struct ap_array]\n\
 		10. all UT/long effects\n\
