@@ -183,6 +183,54 @@ array([[[1.36949418e+06, 1.95229496e+09, 3.83824808e+09, 1.79130515e+08,
 
 ```
 
+### Xarray Dataset interface
+
+Output to a 4-D `xarray.Dataset` is supported via the `dataset` submodule
+which can be installed with:
+```sh
+pip install [-U] 'nrlmsise00[dataset]'
+```
+
+This module provides a 4-D version `msise_4d()` to broadcast the
+1-D inputs for time, altitude, latitude, and longitude.
+It also uses the [`spaceweather`](https://pypi.org/spaceweather) package
+by default to automatically obtain the geomagnetic and Solar flux indices.
+The variable names are set according to the MSIS output.
+```python
+>>> from datetime import datetime
+>>> from nrlmsise00.dataset import msise_4d
+>>> alts = np.arange(200, 401, 100.)  # = [200, 300, 400] [km]
+>>> lats = np.arange(60, 71, 10.)  # = [60, 70] [°N]
+>>> lons = np.arange(-70., 71., 35.)  # = [-70, -35,  0, 35, 70] [°E]
+>>> # broadcasting is done internally
+>>> ds = msise_4d(datetime(2009, 6, 21, 8, 3, 20), alts, lats, lons)
+>>> ds
+<xarray.Dataset>
+Dimensions:  (alt: 3, lat: 2, lon: 5, time: 1)
+Coordinates:
+  * time     (time) datetime64[ns] 2009-06-21T08:03:20
+  * alt      (alt) float64 200.0 300.0 400.0
+  * lat      (lat) float64 60.0 70.0
+  * lon      (lon) float64 -70.0 -35.0 0.0 35.0 70.0
+Data variables:
+    He       (time, alt, lat, lon) float64 8.597e+05 1.063e+06 ... 4.936e+05
+    O        (time, alt, lat, lon) float64 1.248e+09 1.46e+09 ... 2.635e+07
+    N2       (time, alt, lat, lon) float64 2.555e+09 2.654e+09 ... 1.667e+06
+    O2       (time, alt, lat, lon) float64 2.1e+08 2.062e+08 ... 3.471e+04
+    Ar       (time, alt, lat, lon) float64 3.16e+06 3.287e+06 ... 76.55 67.16
+    rho      (time, alt, lat, lon) float64 1.635e-13 1.736e-13 ... 7.984e-16
+    H        (time, alt, lat, lon) float64 3.144e+05 3.02e+05 ... 1.237e+05
+    N        (time, alt, lat, lon) float64 9.095e+06 1.069e+07 ... 6.765e+05
+    AnomO    (time, alt, lat, lon) float64 1.173e-08 1.173e-08 ... 1.101e+04
+    Texo     (time, alt, lat, lon) float64 805.2 823.7 807.1 ... 818.7 821.2
+    Talt     (time, alt, lat, lon) float64 757.9 758.7 766.4 ... 818.7 821.1
+    lst      (time, lon) float64 3.389 5.722 8.056 10.39 12.72
+    Ap       (time) int32 6
+    f107     (time) float64 66.7
+    f107a    (time) float64 69.0
+
+```
+
 ### C model interface
 
 The C submodule directly interfaces the model functions `gtd7()` and `gtd7d()`
