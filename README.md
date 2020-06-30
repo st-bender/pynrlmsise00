@@ -93,12 +93,17 @@ Basic class and method documentation is accessible via `pydoc`:
 $ pydoc nrlmsise00
 ```
 
-### C model interface
+### Python interface
 
-The C submodule directly interfaces the model functions `gtd7()` and `gtd7d()`
-by importing `nrlmsise00._nrlmsise00`. The return values are always
-tuples of two lists containing the densities (`d[0]`--`d[8]`),
-and temperatures (`t[0]`, `t[1]`).
+The Python interface functions take `datetime.datetime` objects for
+convenience. The local solar time is calculated from that time
+and the given location, but it can be set explicitly via the `lst` keyword.
+The returned value has the same format as the original C version (see below).
+Because of their similarity, `gtd7()` and `gtd7d()` are selected via the
+`method` keyword, `gtd7` is the default.
+
+The return values are tuples of two lists containing
+the densities (`d[0]`--`d[8]`) and temperatures (`t[0]`, `t[1]`).
 
 The output has the same order as the C reference code, in particular:
 * `d[0]` - He number density [cm⁻³]
@@ -118,22 +123,7 @@ to the standard setting, such that changing them should not be necessary
 for most use cases.
 For example setting `flag[0]` to `1` changes the output to metres
 and kilograms instead of centimetres and grams (`0` is the default).
-```python
->>> from nrlmsise00._nrlmsise00 import gtd7, gtd7d
->>> # using the standard flags
->>> gtd7(2009, 172, 29000, 400, 60, -70, 16, 150, 150, 4)
-([666517.690495152, 113880555.97522168, 19982109.255734544, 402276.3585712511, 3557.464994515886, 4.074713532757222e-15, 34753.12399717142, 4095913.2682930017, 26672.73209335869], [1250.5399435607994, 1241.4161300191206])
 
-```
-
-### Python interface
-
-The Python interface functions take `datetime.datetime` objects for
-convenience. The local solar time is calculated from that time
-and the given location, but it can be set explicitly via the `lst` keyword.
-The returned value has the same format as the C version, and
-because of their similarity, `gtd7()` and `gtd7d()` are selected via the
-`method` keyword, `gtd7` is the default.
 ```python
 >>> from datetime import datetime
 >>> from nrlmsise00 import msise_model
@@ -190,6 +180,18 @@ array([[[1.36949418e+06, 1.95229496e+09, 3.83824808e+09, 1.79130515e+08,
         [4.65787225e+05, 7.52160226e+07, 1.51795904e+07, 3.13560147e+05,
          2.32541183e+03, 2.76353370e-15, 3.92811827e+04, 1.73321928e+06,
          4.12296154e+04, 1.13812434e+03, 1.13580463e+03]]])
+
+```
+
+### C model interface
+
+The C submodule directly interfaces the model functions `gtd7()` and `gtd7d()`
+by importing `nrlmsise00._nrlmsise00`.
+```python
+>>> from nrlmsise00._nrlmsise00 import gtd7, gtd7d
+>>> # using the standard flags
+>>> gtd7(2009, 172, 29000, 400, 60, -70, 16, 150, 150, 4)
+([666517.690495152, 113880555.97522168, 19982109.255734544, 402276.3585712511, 3557.464994515886, 4.074713532757222e-15, 34753.12399717142, 4095913.2682930017, 26672.73209335869], [1250.5399435607994, 1241.4161300191206])
 
 ```
 
