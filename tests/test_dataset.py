@@ -75,3 +75,17 @@ def test_lst(lon, lst, lst_expected):
 	)
 	assert ds
 	np.testing.assert_allclose(ds.lst.values, lst_expected)
+
+
+def test_nd_raise():
+	with pytest.raises(ValueError, match=r"Only scalars and up to 1-D .*"):
+		msise_4d(
+			dt.datetime(2009, 6, 21, 8),
+			# 2-d should fail
+			[[200]],  # alt
+			60,   # g_lat
+			-70,  # g_long
+			150,  # f107A
+			150,  # f107
+			4,    # ap
+		)
