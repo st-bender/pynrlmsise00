@@ -20,6 +20,6 @@ except ImportError as e:
 		"or:\n"
 		"  pip intsall 'nrlmsise00[all]'      # for all optional modules"
 	)
-	raise ImportError(msg) from e
+	raise ImportError(msg)
 
 warn("The xarray 4d interface is experimental.", UserWarning)
