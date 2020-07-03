@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (c) 2020 Stefan Bender
 #
 # This file is part of pynrlmsise00.
@@ -125,7 +126,7 @@ def msise_4d(
 	ap_a=None, flags=None,
 	method="gtd7",
 ):
-	"""4-D Xarray Interface to :func:`msise_flat()`.
+	u"""4-D Xarray Interface to :func:`msise_flat()`.
 
 	4-D MSIS model atmosphere as a `xarray.Dataset` with dimensions
 	(time, alt, lat, lon). Only scalars and 1-D arrays for `time`, `alt`,
@@ -256,7 +257,7 @@ def msise_4d(
 		lst = lsts[:, None, None, :]
 	else:
 		lsts = np.array([
-			t.hour + t.minute / 60. + t.second / 3600 + lon / 15.
+			t.hour + t.minute / 60. + t.second / 3600. + lon / 15.
 			for t in time
 		])
 
