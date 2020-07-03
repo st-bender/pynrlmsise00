@@ -233,7 +233,7 @@ def msise_4d(
 	sw = sw_daily()
 	# convert arbitrary shapes
 	dts = np.vectorize(pd.to_datetime)(time, utc=True)
-	dtps = dts - pd.to_timedelta("1d")
+	dtps = np.array([dt - pd.to_timedelta("1d") for dt in dts])
 
 	ap = _check_gm(ap, dts, df=sw[["Apavg"]])
 	f107 = _check_gm(f107, dtps, df=sw[["f107_obs"]])
