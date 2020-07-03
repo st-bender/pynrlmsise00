@@ -8,7 +8,7 @@
 """Python interface to the NRLMSISE-00 model
 
 """
-__version__ = "0.0.2.dev0"
+__version__ = "0.0.2-rc1"
 
 from . import _nrlmsise00
 from .core import *
