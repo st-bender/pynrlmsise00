@@ -8,6 +8,8 @@
 """Python 4-D `xarray.dataset` interface to the NRLMSISE-00 model
 
 """
+from collections import OrderedDict
+
 import numpy as np
 import pandas as pd
 import xarray as xr
@@ -264,15 +266,18 @@ def msise_4d(
 		lst=lst, ap_a=ap_a, flags=flags, method=method,
 	)
 	ret = xr.Dataset(
-		{
-			m[0]: (
+		OrderedDict([(
+			m[0], (
 				["time", "alt", "lat", "lon"],
 				d,
 				{"long_name": m[1], "units": m[2]}
-			)
+			))
 			for m, d in zip(MSIS_OUTPUT, np.rollaxis(msis_data, -1))
-		},
-		coords={"time": time, "alt": alt, "lat": lat, "lon": lon},
+		]),
+		coords=OrderedDict([
+			("time", list(map(np.datetime64, time))),
+			("alt", alt), ("lat", lat), ("lon", lon),
+		]),
 	)
 	ret["lst"] = (
 		["time", "lon"], lsts, {"long_name": "Mean Local Solar Time", "units": "h"}
