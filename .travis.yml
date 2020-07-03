@@ -19,7 +19,7 @@ install:
   - pip install -U pytest pytest-cov codecov coveralls
   - pip install tox-travis
   - pip install scrutinizer-ocular
-  - pip install -e .
+  - pip install -e '.[all]'
 script:
   - py.test -v --doctest-glob='*.md' --cov src
 after_success:
