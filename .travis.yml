@@ -26,10 +26,19 @@ after_success:
   - codecov
   - coveralls
   - ocular --data-file ".coverage"
+  # Builds wheels only with Python 3.7
+  # cibuildwheel version and manylinux images to build Py34 wheels
+  # alternative image sha256:
+  # quay.io/pypa/manylinux1_i686@sha256:6616c1a4a93798214e86e964379cd2ee8163fe62af0751da2e8c682809d7c96c
+  # quay.io/pypa/manylinux1_x86_64@sha256:e90db28d26e5558faa8d58ccd2e67d516ca83f793327df0ba48968a77485eb08
   - |
     if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then
       pip install cibuildwheel==0.12.0
-      CIBW_BUILD="cp34-*" cibuildwheel --output-dir dist
+      export CIBW_BUILD="cp34-*"
+      export CIBW_MANYLINUX1_I686_IMAGE="quay.io/pypa/manylinux1_i686:2020-01-31-d8fa357"
+      export CIBW_MANYLINUX1_X86_64_IMAGE="quay.io/pypa/manylinux1_x86_64:2020-01-31-d8fa357"
+      cibuildwheel --output-dir dist
+      unset CIBW_BUILD CIBW_MANYLINUX1_I686_IMAGE CIBW_MANYLINUX1_X86_64_IMAGE
       pip install -U cibuildwheel==1.1.0
       cibuildwheel --output-dir dist
       ls -alF dist/
