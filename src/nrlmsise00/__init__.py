@@ -5,8 +5,9 @@
 # it under the terms of the GNU General Public License as published
 # by the Free Software Foundation, version 2.
 # See accompanying LICENSE file or http://www.gnu.org/licenses/gpl-2.0.html.
-"""Python interface to the NRLMSISE-00 model
+"""Python interface based on the NRLMSISE-00 C version [0]_
 
+.. [0] https://www.brodo.de/space/nrlmsise
 """
 __version__ = "0.0.2-rc1"
 

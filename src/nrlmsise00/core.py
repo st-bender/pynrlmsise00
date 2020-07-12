@@ -88,7 +88,7 @@ gtd7d_flat = vectorize_function(_gtd7d_flat,
 
 def msise_model(time, alt, lat, lon, f107a, f107, ap,
 		lst=None, ap_a=None, flags=None, method="gtd7"):
-	"""Interface to `gtd7()` [#]_ and `gtd7d()` [#]_
+	"""Interface to `gtd7()` [1]_ and `gtd7d()` [2]_
 
 	Calls the C model function using a :class:`datetime.datetime`
 	instance to calculate the day of year, seconds and so on.
@@ -96,8 +96,8 @@ def msise_model(time, alt, lat, lon, f107a, f107, ap,
 	being that `gtd7d()` includes anomalous oxygen in the total
 	mass density (`d[5]`), `gtd7()` does not.
 
-	.. [#] https://git.linta.de/?p=~brodo/nrlmsise-00.git;a=blob;f=nrlmsise-00.c#l916
-	.. [#] https://git.linta.de/?p=~brodo/nrlmsise-00.git;a=blob;f=nrlmsise-00.c#l1044
+	.. [1] https://git.linta.de/?p=~brodo/nrlmsise-00.git;a=blob;f=nrlmsise-00.c#l916
+	.. [2] https://git.linta.de/?p=~brodo/nrlmsise-00.git;a=blob;f=nrlmsise-00.c#l1044
 
 	Parameters
 	----------
