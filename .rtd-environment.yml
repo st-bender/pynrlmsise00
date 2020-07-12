@@ -1,0 +1,14 @@
+name: nrlmsise00
+
+channels:
+    - conda-forge
+
+dependencies:
+    - python=3.6
+    - ipython
+    - numpy
+    - numpydoc
+    - xarray
+    - pip
+    - pip:
+        - spaceweather
