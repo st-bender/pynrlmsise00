@@ -128,7 +128,7 @@ def msise_4d(
 ):
 	u"""4-D Xarray Interface to :func:`msise_flat()`.
 
-	4-D MSIS model atmosphere as a `xarray.Dataset` with dimensions
+	4-D MSIS model atmosphere as a :class:`xarray.Dataset` with dimensions
 	(time, alt, lat, lon). Only scalars and 1-D arrays for `time`, `alt`,
 	`lat`, and `lon` are supported.
 
@@ -178,7 +178,7 @@ def msise_4d(
 
 	Returns
 	-------
-	msise_4d: `xarray.Dataset`
+	msise_4d: :class:`xarray.Dataset`
 		The MSIS atmosphere with dimensions ("time", "alt", "lat", "lon")
 		and shape (I, J, K, L) containing the data arrays:
 		"He", "O", "N2", "O2", "Ar", "rho", "H", "N", "AnomO", "Texo", "Talt",
@@ -189,7 +189,7 @@ def msise_4d(
 	-------
 	Using "internal" setting of the geomagnetic and Solar indices
 	and automatic conversion to 4-D looks like this
-	("time" can be an array of `datetime.datetime`s as well):
+	("time" can be an array of :class:`datetime.datetime` as well):
 
 	>>> from datetime import datetime
 	>>> from nrlmsise00.dataset import msise_4d

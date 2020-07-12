@@ -53,7 +53,7 @@ def _gtd7_flat(*args, **kwargs):
 
 	Returns a single 11-element :class:`numpy.ndarray` instead of
 	the two lists. All arguments except the keywords `flags` and
-	`ap_a` can be :class:`numpy.ndarray`s to facilitate calculations
+	`ap_a` can be :class:`numpy.ndarray` to facilitate calculations
 	at many locations/times.
 
 	{0}
@@ -68,7 +68,7 @@ def _gtd7d_flat(*args, **kwargs):
 
 	Returns a single 11-element :class:`numpy.ndarray` instead of
 	the two lists. All arguments except the keywords `flags` and
-	`ap_a` can be :class:`numpy.ndarray`s to facilitate calculations
+	`ap_a` can be :class:`numpy.ndarray` to facilitate calculations
 	at many locations/times.
 
 	{0}
