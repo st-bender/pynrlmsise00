@@ -1,4 +1,6 @@
-# Python interface for the NRLMSISE-00 empirical neutral atmosphere model
+# PyNRLMSISE-00
+
+**Python interface for the NRLMSISE-00 empirical neutral atmosphere model**
 
 [![builds](https://travis-ci.com/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.com/st-bender/pynrlmsise00)
 [![package](https://img.shields.io/pypi/v/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
