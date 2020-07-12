@@ -6,7 +6,8 @@ PyObject *module;
 static char module_docstring[] =
 	"NRLMSISE-00 wrapper module";
 static char gtd7_docstring[] =
-	"MSIS Neutral Atmosphere Empircial Model from the surface to lower exosphere.\n\n\
+	"gtd7(year, doy, sec, alt, g_lat, g_long, lst, f107A, f107, ap, ap_a=None, flags=None)\n\n\
+	MSIS Neutral Atmosphere Empircial Model from the surface to lower exosphere.\n\n\
 	Parameters\n\
 	----------\n\
 	year: int\n\
@@ -109,7 +110,8 @@ static char gtd7_docstring[] =
 		average value for altitudes below 72 km.\n\n\
 	";
 static char gtd7d_docstring[] =
-	"MSIS Neutral Atmosphere Empircial Model from the surface to lower exosphere.\n\n\
+	"gtd7d(*args, **kwargs)\n\n\
+	MSIS Neutral Atmosphere Empircial Model from the surface to lower exosphere.\n\n\
 	This subroutine provides Effective Total Mass Density for output\n\
 	d[5] which includes contributions from 'anomalous oxygen' which can\n\
 	affect satellite drag above 500 km. See 'returns' for\n\
