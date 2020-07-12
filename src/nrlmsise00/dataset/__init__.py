@@ -22,4 +22,6 @@ except ImportError as e:
 	)
 	raise ImportError(msg)
 
+__all__ = ["msise_4d"]
+
 warn("The xarray 4d interface is experimental.", UserWarning)

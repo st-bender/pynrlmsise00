@@ -12,3 +12,5 @@ __version__ = "0.0.2-rc1"
 
 from . import _nrlmsise00
 from .core import *
+
+__all__ = ["msise_model", "msise_flat", "gtd7_flat", "gtd7d_flat"]
