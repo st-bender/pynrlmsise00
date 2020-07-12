@@ -122,7 +122,7 @@ static char gtd7d_docstring[] =
 	**kwargs:\n\t\tSame as for :func:`gtd7()`.\n\n\
 	Returns\n\
 	-------\n\
-	densities, temperatures: lists\n\
+	densities, temperatures: (list, list)\n\
 		See documentation for :func:`gtd7()`, except for `d[5]`:\n\n\
 		SUBROUTINE GTD7D -- d[5] is the 'effective total mass density\n\
 		for drag' and is the sum of the mass densities of all species\n\
