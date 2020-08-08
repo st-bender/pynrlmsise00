@@ -1,6 +1,9 @@
+graft docs
 graft src
 graft tests
+prune docs/_build
 
 include COPYING*
+include *.md
 
 global-exclude *.py[cod] __pycache__ *.so *.dylib *.git *.swp
