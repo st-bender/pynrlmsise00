@@ -3,6 +3,7 @@
 **Python interface for the NRLMSISE-00 empirical neutral atmosphere model**
 
 [![builds](https://travis-ci.com/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.com/st-bender/pynrlmsise00)
+[![docs](https://readthedocs.org/projects/pynrlmsise00/badge/?version=latest)](https://pynrlmsise00.readthedocs.io/en/latest/?badge=latest)
 [![package](https://img.shields.io/pypi/v/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
 [![wheel](https://img.shields.io/pypi/wheel/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
 [![pyversions](https://img.shields.io/pypi/pyversions/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
@@ -19,6 +20,8 @@ The C code is imported as a `git` submodule from
 
 :warning: This python interface is in the **alpha** stage, that is, it may or
 may not work, and the interface will most likely change in future versions.
+
+Documentation can be found at https://pynrlmsise00.readthedocs.io
 
 **Quote** from https://ccmc.gsfc.nasa.gov/models/modelinfo.php?model=MSISE:
 
