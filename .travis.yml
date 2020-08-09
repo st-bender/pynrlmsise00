@@ -10,21 +10,24 @@ python:
   - "3.8"
 env:
   global:
-    LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+    - CFLAGS=-coverage
 before_install:
   - python --version
   - uname -a
   - lsb_release -a
 install:
-  - pip install -U pytest pytest-cov codecov coveralls
+  - pip install -U pytest pytest-cov codecov coveralls cpp-coveralls
   - pip install tox-travis
   - pip install scrutinizer-ocular
   - pip install -e '.[all]'
 script:
   - py.test -v --doctest-glob='*.md' --cov src
+  - coveralls --build-root=. --include=src --dump=cpp-coveralls.json
 after_success:
+  - coverage report
   - codecov
-  - coveralls
+  - coveralls --merge=cpp-coveralls.json
   - ocular --data-file ".coverage"
   # Builds wheels only with Python 3.7
   # cibuildwheel version and manylinux images to build Py34 wheels
