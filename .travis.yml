@@ -29,6 +29,7 @@ after_success:
   - codecov
   - coveralls --merge=cpp-coveralls.json
   - ocular --data-file ".coverage"
+before_deploy:
   # Builds wheels only with Python 3.7
   # cibuildwheel version and manylinux images to build Py34 wheels
   # alternative image sha256:
