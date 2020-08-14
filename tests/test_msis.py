@@ -194,17 +194,34 @@ def test_py_msise_flat():
 	np.testing.assert_allclose(output0[0], test_output[16], rtol=1e-6)
 
 
-def test_c_invalid():
+def test_c_invalid_length():
 	# C interface
 	with pytest.raises(ValueError):
 		ds, ts = msise._nrlmsise00.gtd7(*STD_INPUT_C, ap_a=[0., 1., 2., 3.])
 	with pytest.raises(ValueError):
-		ds, ts = msise._nrlmsise00.gtd7(*STD_INPUT_C, flags=[0., 1., 2., 3.])
+		ds, ts = msise._nrlmsise00.gtd7(*STD_INPUT_C, flags=[0, 1, 2, 3])
 
 
-def test_py_invalid():
+def test_c_invalid_types():
+	# C interface
+	with pytest.raises(ValueError):
+		ds, ts = msise._nrlmsise00.gtd7(*STD_INPUT_C, ap_a=list(range(6)) + ["6"])
+	# C interface
+	with pytest.raises(ValueError):
+		ds, ts = msise._nrlmsise00.gtd7(*STD_INPUT_C, flags=list(range(23)) + [24.])
+
+
+def test_py_invalid_length():
 	# python functions
 	with pytest.raises(ValueError):
 		ds, ts = msise.msise_model(*STD_INPUT_PY, ap_a=[0., 1., 2., 3.])
 	with pytest.raises(ValueError):
-		ds, ts = msise.msise_model(*STD_INPUT_PY, flags=[0., 1., 2., 3.])
+		ds, ts = msise.msise_model(*STD_INPUT_PY, flags=[0, 1, 2, 3])
+
+
+def test_py_invalid_types():
+	# python functions
+	with pytest.raises(ValueError):
+		ds, ts = msise.msise_model(*STD_INPUT_PY, ap_a=list(range(6)) + ["6"])
+	with pytest.raises(ValueError):
+		ds, ts = msise.msise_model(*STD_INPUT_PY, flags=list(range(23)) + [24.])
