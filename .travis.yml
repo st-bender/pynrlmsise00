@@ -52,6 +52,28 @@ stages:
 jobs:
   include:
     - os: linux
+    - os: osx
+      osx_image: xcode12
+      language: shell
+      before_install:
+        - python3 -m venv venv
+        - source venv/bin/activate
+        - which pip python pip3 python3
+        - python --version
+        - uname -a
+      script:
+        - py.test -v --cov src
+        - coveralls --build-root=. --include=src --dump=cpp-coveralls.json
+      after_success:
+        - coverage report
+    - os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.8.0
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+      after_success:
+        - coverage report
+      env: LD_PRELOAD=
 
     - stage: build
       os: linux
@@ -108,6 +130,9 @@ jobs:
         - ls -alF dist
         - twine check dist/*
       deploy: *pypi
+  allow_failures:
+    - os: osx
+    - os: windows
 before_install:
   - python --version
   - uname -a
