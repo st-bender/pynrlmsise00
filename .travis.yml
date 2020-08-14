@@ -27,7 +27,7 @@ script:
 after_success:
   - coverage report
   - codecov
-  - coveralls --merge=cpp-coveralls.json
+  - python -m coveralls --merge=cpp-coveralls.json
   - ocular --data-file ".coverage"
 before_deploy:
   # Builds wheels only with Python 3.7
