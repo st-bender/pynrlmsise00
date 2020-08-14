@@ -8,7 +8,6 @@ dependencies:
     - ipython
     - numpy
     - numpydoc
-    - sphinx!=3.2.0
     - xarray
     - pip
     - pip:

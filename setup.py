@@ -22,6 +22,7 @@ extnrlmsise00 = Extension(
 extras_require = {
 		"tests": ["pytest"],
 		"dataset": ["spaceweather", "xarray"],
+		"docs": ["sphinx!=3.2.0"],
 }
 extras_require["all"] = sorted(
 		{v for req in extras_require.values() for v in req})
