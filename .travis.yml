@@ -110,6 +110,22 @@ jobs:
           name: wheels-linux2
           paths:
             - dist
+    - os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.8.0
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+      install: skip
+      after_success:
+      script:
+        - which pip python
+        - *wheels
+      env: LD_PRELOAD=
+      workspaces:
+        create:
+          name: wheels-win
+          paths:
+            - dist
 
     - stage: deploy
       os: linux
@@ -122,14 +138,31 @@ jobs:
         use:
           - wheels-linux1
           - wheels-linux2
+          - wheels-win
       git:
         depth: 3
       before_deploy:
         - python -m pip install twine
         - ls -alF
+        - ls -alF C:/Users/travis/build/st-bender/pynrlmsise00/dist
+        - cp -v C:/Users/travis/build/st-bender/pynrlmsise00/dist/* dist/
         - ls -alF dist
         - twine check dist/*
       deploy: *pypi
+    - os: osx
+      osx_image: xcode12
+      language: shell
+      before_install: skip
+      install: skip
+      script: skip
+      after_success:
+      before_deploy:
+        - python3 -m venv venv
+        - source venv/bin/activate
+        - which pip python pip3 python3
+        - *wheels
+      deploy: *pypi
+      env: CIBW_SKIP="pp*"
   allow_failures:
     - os: osx
     - os: windows
