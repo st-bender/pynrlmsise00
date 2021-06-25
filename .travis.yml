@@ -179,7 +179,7 @@ install:
   - pip install -e '.[all]'
 script:
   - py.test -v --doctest-glob='*.md' --cov src
-  - coveralls --build-root=. --include=src --dump=cpp-coveralls.json
+  - (coveralls --build-root=. --include=src --dump=cpp-coveralls.json || echo 1)
 after_success:
   - coverage report
   - codecov
