@@ -71,6 +71,7 @@ jobs:
       before_install:
         - choco install python --version 3.8.0
         - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        - pip install --upgrade pip
       after_success:
         - coverage report
       env: LD_PRELOAD=
@@ -115,6 +116,7 @@ jobs:
       before_install:
         - choco install python --version 3.8.0
         - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        - pip install --upgrade pip
       install: skip
       after_success:
       script:
