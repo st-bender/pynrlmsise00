@@ -34,6 +34,7 @@ The NRLMSIS-00 empirical atmosphere model was developed by Mike Picone, Alan Hed
 ### Requirements
 
 - `numpy` - required
+- `spaceweather` and `xarray` - optional, for the `datatset` sub-package, see below
 - `pytest` - optional, for testing
 
 To compile the C source code, additional system header files may be required.
