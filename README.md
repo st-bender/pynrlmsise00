@@ -303,7 +303,7 @@ f107, f107A, and ap effects are neither large nor well
 established below 80 km and these parameters should be set to
 150., 150., and 4. respectively.
 
-# License
+## License
 
 This python interface is free software: you can redistribute it or modify
 it under the terms of the GNU General Public License as published by
