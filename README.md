@@ -18,8 +18,9 @@ The C code is imported as a `git` submodule from
 (browsable version at:
 [https://git.linta.de/?p=~brodo/nrlmsise-00.git](https://git.linta.de/?p=~brodo/nrlmsise-00.git)).
 
-:warning: This python interface is in the **alpha** stage, that is, it may or
-may not work, and the interface will most likely change in future versions.
+:warning: This python interface is in the **beta** stage, that is,
+it should work but may still have some bugs.
+The interface is supposed to be stable but may still change slightly in future versions.
 
 Documentation can be found at https://pynrlmsise00.readthedocs.io
 
