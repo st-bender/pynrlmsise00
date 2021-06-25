@@ -146,7 +146,7 @@ jobs:
         - python -m pip install twine
         - ls -alF
         - ls -alF C:/Users/travis/build/st-bender/pynrlmsise00/dist
-        - cp -v C:/Users/travis/build/st-bender/pynrlmsise00/dist/* dist/
+        - cp -v C:/Users/travis/build/st-bender/pynrlmsise00/dist/* dist/ || echo 1
         - ls -alF dist
         - twine check dist/*
       deploy: *pypi
