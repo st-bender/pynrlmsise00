@@ -198,7 +198,7 @@ pip install [-U] 'nrlmsise00[dataset]'
 
 This module provides a 4-D version `msise_4d()` to broadcast the
 1-D inputs for time, altitude, latitude, and longitude.
-It also uses the [`spaceweather`](https://pypi.org/spaceweather) package
+It also uses the [`spaceweather`](https://pypi.org/project/spaceweather) package
 by default to automatically obtain the geomagnetic and Solar flux indices.
 The variable names are set according to the MSIS output.
 ```python
@@ -294,6 +294,10 @@ to the 10.7 cm radio flux at the actual distance of the Earth
 from the Sun rather than the radio flux at 1 AU.
 The following site provides both classes of values (**outdated**):
 ftp://ftp.ngdc.noaa.gov/STP/SOLAR_DATA/SOLAR_RADIO/FLUX/
+
+More up-to-date index files can be found at <https://celestrak.com/SpaceData/>,
+which are also provided by the
+[spaceweather](https://pypi.org/project/spaceweather) package.
 
 f107, f107A, and ap effects are neither large nor well
 established below 80 km and these parameters should be set to
