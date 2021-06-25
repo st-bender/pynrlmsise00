@@ -174,6 +174,7 @@ install:
   - pip install -U pytest pytest-cov codecov coveralls cpp-coveralls
   - pip install tox-travis
   - pip install scrutinizer-ocular
+  - pip install pandas 'xarray<0.17'
   - pip install -e '.[all]'
 script:
   - py.test -v --doctest-glob='*.md' --cov src
