@@ -20,7 +20,7 @@ import numpy as np
 
 from ._nrlmsise00 import gtd7, gtd7d
 
-__all__ = ["gtd7_flat", "gtd7d_flat", "msise_model", "msise_flat"]
+__all__ = ["gtd7_flat", "gtd7d_flat", "msise_model", "msise_flat", "scale_height"]
 
 
 def _doc_param(*sub):
@@ -197,3 +197,39 @@ def msise_flat(*args, **kwargs):
 	flags = kwargs.pop("flags", None)
 
 	return _msise_flatv(*args, lst=lst, ap_a=ap_a, flags=flags, **kwargs)
+
+
+def scale_height(alt, lat, molw, temp):
+	"""Atmospheric scale height
+
+	Extracted from the C-code for easy access, with
+	constants updated to the standard SI values.
+	It is reasonably fast and :mod:`numpy`-broadcasting compatible.
+
+	Parameters
+	----------
+	alt: float or array_like
+		Altitude in [km].
+	lat: float or array_like
+		Geodetic latitude in [degrees N].
+	molw: float or array_like
+		Molecular mass at alt in [kg / mol].
+		Can be derived by dividing the total mass density by
+		the sum of number densities, e.g. from :func:`gtd7()`,
+		multiplied by Avogadro's constant (6.0221407e23 / mol).
+	temp: float or array_like
+		Temperature at alt in [K].
+
+	Returns
+	-------
+	scale_height: float or array_like
+		Scale height in [m].
+	"""
+	# Rgas = 8.31446261815324  # J / K / mol
+	# dgtr = 1.7453292519943295e-2  # rad / deg
+	c2 = np.cos(2. * 1.7453292519943295e-2 * lat)
+	gsurf = 9.80665 * (1.0 - 0.0026373 * c2)  # m / s2
+	# re in [km]
+	re = 2. * gsurf / (3.085462e-6 + 2.27e-9 * c2) * 1.0e-3
+	g = gsurf / (1 + alt / re)**2
+	return 8.31446261815324 * temp / (g * molw)
