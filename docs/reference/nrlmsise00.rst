@@ -12,6 +12,7 @@ Python/NumPy interface
     msise_flat
     gtd7_flat
     gtd7d_flat
+    scale_height
 
 .. automodule:: nrlmsise00
    :members:
