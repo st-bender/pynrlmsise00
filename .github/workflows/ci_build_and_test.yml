@@ -20,6 +20,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - uses: actions/cache@v2
         with:
           key: ${{ runner.os}}-pip-${{ matrix.python-version }}
