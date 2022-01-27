@@ -2,7 +2,7 @@
 
 **Python interface for the NRLMSISE-00 empirical neutral atmosphere model**
 
-[![builds](https://travis-ci.com/st-bender/pynrlmsise00.svg?branch=master)](https://travis-ci.com/st-bender/pynrlmsise00)
+[![builds](https://github.com/st-bender/pynrlmsise00/actions/workflows/ci_build_and_test.yml/badge.svg?branch=master)](https://github.com/st-bender/pynrlmsise00/actions/workflows/ci_build_and_test.yml)
 [![docs](https://readthedocs.org/projects/pynrlmsise00/badge/?version=latest)](https://pynrlmsise00.readthedocs.io/en/latest/?badge=latest)
 [![package](https://img.shields.io/pypi/v/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
 [![wheel](https://img.shields.io/pypi/wheel/nrlmsise00.svg?style=flat)](https://pypi.org/project/nrlmsise00)
