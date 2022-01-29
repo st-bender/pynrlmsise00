@@ -40,6 +40,7 @@ jobs:
           path: ./dist/*.whl
 
   build_wheels:
+    name: Wheels on ${{ matrix os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
