@@ -51,8 +51,8 @@ jobs:
         with:
           output-dir: dist
       - name: List wheels
-        run: |
-          ls -alF dist/
+        run: ls -alF dist/
+        if: !startsWith(matrix.os, 'windows')
       - uses: actions/upload-artifact@v2
         with:
           path: ./dist/*.whl
