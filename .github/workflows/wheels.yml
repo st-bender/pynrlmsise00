@@ -1,9 +1,9 @@
 name: wheels
 
 on:
-  push:
-    branches:
-      - github_ci
+  release:
+    types:
+      - published
 
 jobs:
   build_wheels_34:
