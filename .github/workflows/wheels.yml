@@ -30,10 +30,11 @@ jobs:
           # alternative image sha256:
           # quay.io/pypa/manylinux1_i686@sha256:6616c1a4a93798214e86e964379cd2ee8163fe62af0751da2e8c682809d7c96c
           # quay.io/pypa/manylinux1_x86_64@sha256:e90db28d26e5558faa8d58ccd2e67d516ca83f793327df0ba48968a77485eb08
-          CIBW_BUILD: "cp34-*"
+          CIBW_BUILD: "cp34-*64"
           CIBW_MANYLINUX1_I686_IMAGE: "quay.io/pypa/manylinux1_i686:2020-01-31-d8fa357"
           CIBW_MANYLINUX1_X86_64_IMAGE: "quay.io/pypa/manylinux1_x86_64:2020-01-31-d8fa357"
           CIBW_PLATFORM: linux
+          CIBW_TEST_SKIP: "*"
       - uses: actions/upload-artifact@v2
         with:
           path: ./dist/*.whl
