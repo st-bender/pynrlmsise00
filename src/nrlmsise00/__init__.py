@@ -9,7 +9,7 @@
 
 .. [0] https://www.brodo.de/space/nrlmsise
 """
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from . import _nrlmsise00
 from .core import *
