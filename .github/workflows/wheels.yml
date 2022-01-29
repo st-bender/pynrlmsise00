@@ -45,7 +45,7 @@ jobs:
         with:
           submodules: true
       - name: Build wheels
-        uses: pypa/cbuildwheel@v1.12.0
+        uses: pypa/cibuildwheel@v1.12.0
         with:
           output-dir: dist
       - name: List wheels
