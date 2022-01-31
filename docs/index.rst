@@ -9,8 +9,8 @@ Python interface for the NRLMSISE-00 empirical neutral atmosphere model
 
 The source code is `available on Github <https://github.com/st-bender/pynrlmsise00>`_.
 
-.. image:: https://travis-ci.com/st-bender/pynrlmsise00.svg?branch=master
-    :target: https://travis-ci.com/st-bender/pynrlmsise00
+.. image:: https://github.com/st-bender/pynrlmsise00/actions/workflows/ci_build_and_test.yml/badge.svg?branch=master
+    :target: https://github.com/st-bender/pynrlmsise00/actions/workflows/ci_build_and_test.yml
     :alt: builds
 .. image:: https://readthedocs.org/projects/pynrlmsise00/badge/?version=latest
     :target: https://pynrlmsise00.readthedocs.io/en/latest/?badge=latest
