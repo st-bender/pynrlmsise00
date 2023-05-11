@@ -237,15 +237,18 @@ def msise_4d(
 	if sw.index.tz is None:
 		sw = sw.tz_localize("utc")
 	# convert arbitrary shapes
-	dts = np.vectorize(pd.to_datetime)(time, utc=True)
-	dtps = np.array([dt - pd.to_timedelta("1d") for dt in dts])
+	dts = pd.to_datetime(time, utc=True)
+	dtps = dts - pd.to_timedelta("1d")
 
 	ap = _check_gm(ap, dts, df=sw[["Apavg"]])
 	f107 = _check_gm(f107, dtps, df=sw[["f107_obs"]])
 	f107a = _check_gm(f107a, dts, df=sw[["f107_81ctr_obs"]])
 
 	# expand dimensions to 4d
-	ts = time[:, None, None, None]
+	# `np.array()` converts the `pandas` datetime object to
+	# an array of `pandas.Timestamp` objects which are passed to
+	# the MSIS function that accesses the datetime attributes.
+	ts = np.array(dts)[:, None, None, None]
 	alts = alt[None, :, None, None]
 	lats = lat[None, None, :, None]
 	lons = lon[None, None, None, :]
@@ -260,7 +263,7 @@ def msise_4d(
 	else:
 		lsts = np.array([
 			t.hour + t.minute / 60. + t.second / 3600. + lon / 15.
-			for t in time
+			for t in dts
 		])
 
 	msis_data = msise_flat(
@@ -278,7 +281,7 @@ def msise_4d(
 			for m, d in zip(MSIS_OUTPUT, np.rollaxis(msis_data, -1))
 		]),
 		coords=OrderedDict([
-			("time", list(map(np.datetime64, time))),
+			("time", dts.tz_localize(None)),
 			("alt", ("alt", alt, {"long_name": "altitude", "units": "km"})),
 			("lat", ("lat", lat, {"long_name": "latitude", "units": "degrees_north"})),
 			("lon", ("lon", lon, {"long_name": "longitude", "units": "degrees_east"})),
