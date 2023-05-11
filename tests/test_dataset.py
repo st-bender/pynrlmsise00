@@ -4,7 +4,10 @@ import datetime as dt
 import numpy as np
 import pytest
 
-from nrlmsise00.dataset import msise_4d
+try:
+	from nrlmsise00.dataset import msise_4d
+except ImportError:
+	pytest.skip("`nrlmsise00.dataset` not installed.", allow_module_level=True)
 
 
 @pytest.mark.parametrize(
