@@ -234,6 +234,8 @@ def msise_4d(
 	lon = _check_nd(lon)
 
 	sw = sw_daily()
+	if sw.index.tz is None:
+		sw = sw.tz_localize("utc")
 	# convert arbitrary shapes
 	dts = np.vectorize(pd.to_datetime)(time, utc=True)
 	dtps = np.array([dt - pd.to_timedelta("1d") for dt in dts])
