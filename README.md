@@ -12,19 +12,19 @@
 [![scrutinizer](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/st-bender/pynrlmsise00/?branch=master)
 
 This python version of the NRLMSISE00 upper atmosphere model is
-based on the C-version of the code, available at www.brodo.de/space/nrlmsise.
+based on the C-version of the code, available at <https://www.brodo.de/space/nrlmsise>.
 The C code is imported as a `git` submodule from
 [git://git.linta.de/~brodo/nrlmsise-00.git](git://git.linta.de/~brodo/nrlmsise-00.git)
-(browsable version at:
-[https://git.linta.de/?p=~brodo/nrlmsise-00.git](https://git.linta.de/?p=~brodo/nrlmsise-00.git)).
+(browsable version at: <https://git.linta.de/?p=~brodo/nrlmsise-00.git>).
 
 :warning: This python interface is in the **beta** stage, that is,
 it should work but may still have some bugs.
 The interface is supposed to be stable but may still change slightly in future versions.
 
-Documentation can be found at https://pynrlmsise00.readthedocs.io
+Documentation can be found at <https://pynrlmsise00.readthedocs.io>,
+and development happens on github <https://github.com/st-bender/pynrlmsise00>.
 
-**Quote** from https://ccmc.gsfc.nasa.gov/models/modelinfo.php?model=MSISE:
+**Quote** from <https://ccmc.gsfc.nasa.gov/models/modelinfo.php?model=MSISE>:
 
 “The MSISE model describes the neutral temperature and densities in Earth's atmosphere from ground to thermospheric heights.
 The NRLMSIS-00 empirical atmosphere model was developed by Mike Picone, Alan Hedin, and Doug Drob.”
