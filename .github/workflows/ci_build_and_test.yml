@@ -24,17 +24,17 @@ jobs:
             os: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           key: ${{ runner.os}}-pip-${{ matrix.python-version }}
           path: ~/.cache/pip
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - run: |
@@ -59,7 +59,7 @@ jobs:
       - name: Convert coverage
         run: python -m coverage xml
       - name: Upload coverage report
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
 
       - name: Upload to Coveralls
         if: startsWith(matrix.os, 'ubuntu') && matrix.python-version != '2.7'
@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: "3.9"
       - name: Finish coverage collection
