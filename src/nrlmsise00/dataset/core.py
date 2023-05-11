@@ -279,7 +279,9 @@ def msise_4d(
 		]),
 		coords=OrderedDict([
 			("time", list(map(np.datetime64, time))),
-			("alt", alt), ("lat", lat), ("lon", lon),
+			("alt", ("alt", alt, {"long_name": "altitude", "units": "km"})),
+			("lat", ("lat", lat, {"long_name": "latitude", "units": "degrees_north"})),
+			("lon", ("lon", lon, {"long_name": "longitude", "units": "degrees_east"})),
 		]),
 	)
 	ret["lst"] = (
