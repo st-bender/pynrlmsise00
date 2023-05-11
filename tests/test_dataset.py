@@ -11,6 +11,13 @@ except ImportError:
 
 
 @pytest.mark.parametrize(
+	"date", [
+		[dt.datetime(2009, 6, 21, 8, 3, 20), dt.datetime(2009, 12, 21, 16, 3, 20)],
+		["2009-06-21 08:03:20", "2009-12-21 16:03:20"],
+		["2009-06-21 08:03:20+01:00", "2009-12-21 16:03:20-01:00"],
+	]
+)
+@pytest.mark.parametrize(
 	"ap, lon, lst", [
 		(None, -70., None),
 		(4., -70., 16.),
@@ -20,10 +27,10 @@ except ImportError:
 		(None, [-70, 0., 70.], [[5., 6., 7.], [17., 18., 19.]]),
 	]
 )
-def test_dataset(ap, lon, lst):
+def test_dataset(date, ap, lon, lst):
 	# checks that broadcasting works as intended
 	ds = msise_4d(
-		[dt.datetime(2009, 6, 21, 8, 3, 20), dt.datetime(2009, 12, 21, 16, 3, 20)],
+		date,
 		[400, 200, 100],  # alt
 		[60, 30, 0, -30, -60],  # g_lat
 		lon,    # g_long
