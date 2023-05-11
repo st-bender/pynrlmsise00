@@ -238,17 +238,17 @@ def msise_4d(
 		sw = sw.tz_localize("utc")
 	# convert arbitrary shapes
 	dts = pd.to_datetime(time, utc=True)
-	dtps = dts - pd.to_timedelta("1d")
+	# convert to numpy array for further processing
+	dtsv = dts.to_numpy()
+	# previous day for f10.7
+	dtps = dtsv - pd.to_timedelta("1d")
 
-	ap = _check_gm(ap, dts, df=sw[["Apavg"]])
+	ap = _check_gm(ap, dtsv, df=sw[["Apavg"]])
 	f107 = _check_gm(f107, dtps, df=sw[["f107_obs"]])
-	f107a = _check_gm(f107a, dts, df=sw[["f107_81ctr_obs"]])
+	f107a = _check_gm(f107a, dtsv, df=sw[["f107_81ctr_obs"]])
 
 	# expand dimensions to 4d
-	# `np.array()` converts the `pandas` datetime object to
-	# an array of `pandas.Timestamp` objects which are passed to
-	# the MSIS function that accesses the datetime attributes.
-	ts = np.array(dts)[:, None, None, None]
+	ts = dtsv[:, None, None, None]
 	alts = alt[None, :, None, None]
 	lats = lat[None, None, :, None]
 	lons = lon[None, None, None, :]
