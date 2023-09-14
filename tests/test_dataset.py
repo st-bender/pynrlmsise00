@@ -36,7 +36,6 @@ def test_dataset(date, ap, lon, lst):
 		[60, 30, 0, -30, -60],  # g_lat
 		lon,    # g_long
 		150,    # f107A
-		150,    # f107
 		ap=ap,  # ap
 		lst=lst,
 	)
