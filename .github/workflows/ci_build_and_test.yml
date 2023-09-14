@@ -34,9 +34,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: MatteoH2O1999/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+          cache-build: true
       - run: |
           lsb_release -a
           uname -a
