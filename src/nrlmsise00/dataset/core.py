@@ -261,8 +261,10 @@ def msise_4d(
 
 	if lst is not None:
 		lsts = _check_lst(lst, time, lon)
+		# used for MSIS below
 		lst = lsts[:, None, None, :]
 	else:
+		# calculated for the returned dataset
 		lsts = np.array([
 			t.hour + t.minute / 60. + t.second / 3600. + lon / 15.
 			for t in dts
