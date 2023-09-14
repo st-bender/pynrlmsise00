@@ -144,8 +144,10 @@ def msise_4d(
 
 	Parameters
 	----------
-	time: float or 1-d array_like (I,)
-		Time as `datetime.datetime`s.
+	time: `datetime.datetime`, `pandas` datetime, str, or 1-d array_like (I,)
+		Time as `datetime.datetime`s, a `pandas` datetime object, a date-time
+		string supported by `pandas.to_datetime()`, or an array of those.
+		Will be converted with `pandas.to_datetime()`.
 	alt: float or 1-d array_like (J,)
 		Altitudes in [km].
 	lat: float or 1-d array_like (K,)
