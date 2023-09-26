@@ -222,7 +222,9 @@ static PyObject *nrlmsise00_gtd7(PyObject *self, PyObject *args, PyObject *kwarg
 
 	msis_input.ap_a = &ap_arr;
 
+	Py_BEGIN_ALLOW_THREADS
 	gtd7(&msis_input, &msis_flags, &msis_output);
+	Py_END_ALLOW_THREADS
 
 	return Py_BuildValue("[ddddddddd][dd]",
 			msis_output.d[0], msis_output.d[1], msis_output.d[2],
@@ -268,7 +270,9 @@ static PyObject *nrlmsise00_gtd7d(PyObject *self, PyObject *args, PyObject *kwar
 
 	msis_input.ap_a = &ap_arr;
 
+	Py_BEGIN_ALLOW_THREADS
 	gtd7d(&msis_input, &msis_flags, &msis_output);
+	Py_END_ALLOW_THREADS
 
 	return Py_BuildValue("[ddddddddd][dd]",
 			msis_output.d[0], msis_output.d[1], msis_output.d[2],
