@@ -35,7 +35,7 @@ jobs:
           CIBW_MANYLINUX1_X86_64_IMAGE: "quay.io/pypa/manylinux1_x86_64:2020-01-31-d8fa357"
           CIBW_PLATFORM: linux
           CIBW_TEST_SKIP: "*"
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: ./dist/*.whl
 
@@ -59,7 +59,7 @@ jobs:
       - name: List wheels
         run: ls -alF dist/
         if: ${{ !startsWith(matrix.os, 'windows') }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: ./dist/*.whl
 
@@ -82,7 +82,7 @@ jobs:
       - run: ls -alF dist/
       - name: Check long_description
         run: python -m twine check dist/*
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: ./dist/*.tar.gz
 
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'published'
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: artifact
           path: dist
