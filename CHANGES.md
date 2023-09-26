@@ -1,6 +1,20 @@
 Changelog
 =========
 
+v0.1.2 (unreleased)
+-------------------
+
+### New
+
+- Release GIL for MSIS C-routines
+
+### Changes
+
+- xarray Dataset handling improvements
+- Compatibility fixes
+- Documentation updates
+
+
 v0.1.1 (2022-01-29)
 -------------------
 
