@@ -51,7 +51,6 @@ jobs:
           pip install -U pytest pytest-cov codecov coveralls
           pip install -U cpp-coveralls
           pip install scrutinizer-ocular
-          pip install pandas 'xarray<0.17'
       - name: Install package
         run: |
           pip install -e ".[all]"
