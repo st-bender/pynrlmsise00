@@ -99,7 +99,7 @@ html_context = dict(
 html_static_path = ["_static"]
 # Switch to old behavior with html4, for a good display of references,
 # as described in https://github.com/sphinx-doc/sphinx/issues/6705
-html4_writer = True
+# html4_writer = True
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
