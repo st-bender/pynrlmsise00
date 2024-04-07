@@ -70,7 +70,7 @@ if __name__ == "__main__":
 		long_description_content_type="text/markdown",
 		keywords="atmosphere earth model python-interface",
 		author="Stefan Bender",
-		author_email="stefan.bender@ntnu.no",
+		author_email="sbender@iaa.es",
 		url="https://github.com/st-bender/pynrlmsise00",
 		project_urls={
 			"Documentation": "https://pynrlmsise00.readthedocs.io",
