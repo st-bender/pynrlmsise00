@@ -33,7 +33,7 @@ if getenv('SPELLCHECK'):
 
 master_doc = 'index'
 
-language = None
+language = "en"
 
 htmlhelp_basename = 'pynrlmsise00doc'
 
