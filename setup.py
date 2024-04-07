@@ -4,7 +4,7 @@ import re
 # Always prefer setuptools over distutils
 from setuptools import find_packages, setup
 from subprocess import check_call
-from distutils.core import Extension
+from setuptools import Extension
 
 name = "nrlmsise00"
 meta_path = path.join("src", name, "__init__.py")
