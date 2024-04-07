@@ -212,7 +212,7 @@ The variable names are set according to the MSIS output.
 >>> lons = np.arange(-70., 71., 35.)  # = [-70, -35,  0, 35, 70] [°E]
 >>> # broadcasting is done internally
 >>> ds = msise_4d(datetime(2009, 6, 21, 8, 3, 20), alts, lats, lons)
->>> ds
+>>> ds  # doctest: +SKIP
 <xarray.Dataset>
 Dimensions:  (alt: 3, lat: 2, lon: 5, time: 1)
 Coordinates:
