@@ -8,6 +8,8 @@ dependencies:
     - ipython
     - numpy
     - numpydoc
+    - recommonmark
+    - sphinx_rtd_theme
     - xarray
     - pip
     - pip:
