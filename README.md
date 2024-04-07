@@ -14,8 +14,8 @@
 This python version of the NRLMSISE00 upper atmosphere model is
 based on the C-version of the code, available at <https://www.brodo.de/space/nrlmsise>.
 The C code is imported as a `git` submodule from
-[git://git.linta.de/~brodo/nrlmsise-00.git](git://git.linta.de/~brodo/nrlmsise-00.git)
-(browsable version at: <https://git.linta.de/?p=~brodo/nrlmsise-00.git>).
+<git://git.linta.de/~brodo/nrlmsise-00.git>
+(browsable version at: <https://git.linta.de/~brodo/nrlmsise-00.git>).
 
 :warning: This python interface is in the **beta** stage, that is,
 it should work but may still have some bugs.
