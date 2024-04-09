@@ -22,6 +22,10 @@ jobs:
             os: ubuntu-20.04
           - python-version: "3.6"
             os: ubuntu-20.04
+          - python-version: "3.x"
+            os: macos-latest
+          - python-version: "3.x"
+            os: windows-latest
 
     steps:
       - uses: actions/checkout@v4
