@@ -38,6 +38,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Update package list
+        if: startsWith(matrix.os, 'ubuntu')
         run: |
           sudo apt-get update
       - name: Set up Python ${{ matrix.python-version }}
