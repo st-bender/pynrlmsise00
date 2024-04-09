@@ -64,6 +64,8 @@ jobs:
         run: |
           py.test -v --doctest-glob='*.md' --cov src
           coveralls --build-root=. --include=src --dump=cpp-coveralls.json
+        env:
+          COVERAGE_CORE: sysmon
       - name: Convert coverage
         run: python -m coverage xml
       - name: Upload coverage report
