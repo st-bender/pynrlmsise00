@@ -157,7 +157,11 @@ array([5.65085279e+05, 6.79850175e+07, 1.18819263e+07, 2.37030166e+05,
 ```
 
 All arguments can be `numpy.ndarray`s, but must be broadcastable
-to a common shape. For example to calculate the values for
+to a common shape.
+The `time` array should contain entries of type `datetime.datetime`,
+a `pandas.DatetimeIndex` can be converted by calling `<index>.to_pydatetime()`,
+for `astropy.time.Time` arrays use `<array>.to_datetime()`.
+For example to calculate the values for
 three altitudes (200, 300, and 400 km) and two latitude locations
 (60 and 70 °N) simultaneously, one can use `numpy.newaxis`
 (which is equal to `None`) like this:
