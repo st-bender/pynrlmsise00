@@ -147,8 +147,9 @@ def msise_model(time, alt, lat, lon, f107a, f107, ap,
 	----
 	No date and time conversion will be attempted, the input needs to be
 	converted before, `dateutil` or `pandas` provide convenient functions.
-	For example to convert a :class:`pandas.DatetimeIndex`,
-	use ``<index>.to_pydatetime()``.
+	For example to convert :class:`pandas.DatetimeIndex`
+	use ``<index>.to_pydatetime()``,
+	for :class:`astropy.time.Time` use ``<Time>.to_datetime()``.
 
 	The local solar time is calculated from time and longitude, except when
 	`lst` is set, then that value is used.
@@ -194,7 +195,8 @@ def msise_flat(*args, **kwargs):
 	This flattened version returns a single 11-element array instead of two
 	separate lists. Additionally, it can take :class:`numpy.ndarray` as input.
 	However, the `time` input needs to contain entries of :class:`datetime.datetime`,
-	e.g. using :meth:`pandas.DatetimeIndex.to_pydatetime()`.
+	e.g. using :meth:`pandas.DatetimeIndex.to_pydatetime()`
+	or :meth:`astropy.time.Time.to_datetime()`.
 	"""
 	# Set keyword arguments to None if not given to make `np.vectorize` happy
 	lst = kwargs.pop("lst", None)
