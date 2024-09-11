@@ -17,9 +17,11 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ["2.7", "3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+        pip-trusted-host: ""
         include:
           - python-version: "3.5"
             os: ubuntu-20.04
+            pip-trusted-host: "pypi.python.org pypi.org files.pythonhosted.org"
           - python-version: "3.6"
             os: ubuntu-20.04
           - python-version: "3.x"
@@ -46,6 +48,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache-build: true
+        env:
+          PIP_TRUSTED_HOST: ${{ matrix.pip-trusted-host }}
       - run: |
           lsb_release -a
           uname -a
