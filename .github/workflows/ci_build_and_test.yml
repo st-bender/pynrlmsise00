@@ -74,6 +74,12 @@ jobs:
       - name: Upload coverage report
         uses: codecov/codecov-action@v3
 
+      - name: Update path for macOS
+        # Updates $PATH so that `coveralls` does not get confused with the
+        # locally installed python package
+        if: startsWith(runner.os, 'macOS')
+        run: echo "/opt/homebrew/bin" >> $GITHUB_PATH
+
       - name: Upload to Coveralls
         uses: coverallsapp/github-action@v2
         with:
